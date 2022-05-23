@@ -5,12 +5,13 @@ import Token from '../abis/Token.json'
 import dbank from '../dbank.png';
 import Web3 from 'web3';
 import './App.css';
+import { ThemeConsumer } from 'react-bootstrap/esm/ThemeProvider';
 
 //h0m3w0rk - add new tab to check accrued interest
 
 class App extends Component {
 
-  async componentWillMount() {
+  async UNSAFE_componentWillMount() {
     await this.loadBlockchainData(this.props.dispatch)
   }
 
@@ -19,7 +20,19 @@ class App extends Component {
     if (typeof window.ethereum !== 'undefined') {
       const web3 = new Web3(window.ethereum);
       const netId = await web3.eth.net.getId();
-      console.log(netId)
+      const accounts = await web3.eth.getAccounts()
+
+      // load balance
+      if (typeof accounts[0] !== 'undefined') {
+        const balance = await web3.eth.getBalance(accounts[0])
+        this.setState({
+          account: accounts[0],
+          balance,
+          web3
+        })
+      } else {
+        window.alert('Please install MetaMask.')
+      }
     } else {
       window.alert('Please install MetaMask.')
     };
