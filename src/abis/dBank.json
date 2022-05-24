@@ -5516,6 +5516,69 @@
     "version": "0.7.6+commit.7338295f.Emscripten.clang"
   },
   "networks": {
+    "1337": {
+      "events": {
+        "0x90890809c654f11d6e72a28fa60149770a0d11ec6c92319d6ceb2bb0a4ea1a15": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "user",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "etherAmount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "timeStart",
+              "type": "uint256"
+            }
+          ],
+          "name": "Deposit",
+          "type": "event"
+        },
+        "0x02f25270a4d87bea75db541cdfe559334a275b4a233520ed6c0a2429667cca94": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "user",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "etherAmount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "depositTime",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "interest",
+              "type": "uint256"
+            }
+          ],
+          "name": "Withdraw",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xAD0C7808EeC38bc3603a7a328B265Cb00f112020",
+      "transactionHash": "0xc9493475ea988660da376b178d8dc0ecb364385dd9a9ccb08e45734ecafbdaf2"
+    },
     "5777": {
       "events": {
         "0x90890809c654f11d6e72a28fa60149770a0d11ec6c92319d6ceb2bb0a4ea1a15": {
@@ -5581,7 +5644,7 @@
     }
   },
   "schemaVersion": "3.2.3",
-  "updatedAt": "2022-05-23T21:59:15.523Z",
+  "updatedAt": "2022-05-23T22:56:22.898Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

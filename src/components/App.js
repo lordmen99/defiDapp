@@ -18,11 +18,12 @@ class App extends Component {
   async loadBlockchainData(dispatch) {
     
     if (typeof window.ethereum !== 'undefined') {
+
       const web3 = new Web3(window.ethereum);
       const netId = await web3.eth.net.getId();
       const accounts = await web3.eth.getAccounts()
 
-      // load balance
+      // loading balance
       if (typeof accounts[0] !== 'undefined') {
         const balance = await web3.eth.getBalance(accounts[0])
         this.setState({
@@ -32,7 +33,12 @@ class App extends Component {
         })
       } else {
         window.alert('Please install MetaMask.')
-      }
+      } // finished loading balance
+
+      // token
+      const token = new web3.eth.Contract(Token.abi, Token.networks[netId].address)
+      // bank
+
     } else {
       window.alert('Please install MetaMask.')
     };
